@@ -11,9 +11,9 @@ namespace WebApplicationAPI.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        private static readonly string[] Pronosticos = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Soleado", "Nublado", "Parcialmente nublado", "Lluvioso", "Ventoso", "Tormentoso"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
@@ -29,9 +29,9 @@ namespace WebApplicationAPI.Controllers
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Fecha = DateTime.Now.AddDays(index),
+                TemperaturaC = rng.Next(-20, 55),
+                Pronostico = Pronosticos[rng.Next(Pronosticos.Length)]
             })
             .ToArray();
         }
